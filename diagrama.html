@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Diagrama de Malla QyF UC</title>
+  <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Diagrama de Prerrequisitos</h1>
+    <div class="actions">
+      <button onclick="window.location.href='index.html'">← Volver</button>
+      <button id="toggleTheme">🌙 Tema Oscuro</button>
+    </div>
+  </header>
+  <div id="network" style="width: 95%; height: 80vh; margin: 1rem auto; border: 1px solid #ddd; border-radius: 8px;"></div>
+  <script src="script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      // Colores por semestre
+      const colors = [
+        "#FF5252", "#FF4081", "#E040FB", "#7C4DFF", 
+        "#536DFE", "#448AFF", "#40C4FF", "#18FFFF", 
+        "#64FFDA", "#69F0AE", "#B2FF59", "#EEFF41"
+      ];
+
+      // Generar nodos y edges
+      const nodes = semestres.flatMap((semestre, i) => 
+        semestre.cursos.map(curso => ({
+          id: curso.codigo,
+          label: `${curso.nombre}\n${curso.codigo}`,
+          color: {
+            background: aprobados.has(curso.codigo) ? "#4CAF50" : colors[i % colors.length],
+            border: "#2C3E50",
+            highlight: { background: "#FFC107" }
+          },
+          font: { color: aprobados.has(curso.codigo) ? "white" : "#2C3E50" },
+          shape: "box",
+          margin: 10
+        }))
+      );
+
+      const edges = semestres.flatMap(semestre =>
+        semestre.cursos.flatMap(curso =>
+          curso.prereq.map(prereq => ({
+            from: prereq,
+            to: curso.codigo,
+            arrows: "to",
+            color: { color: aprobados.has(prereq) ? "#4CAF50" : "#90A4AE" }
+          }))
+        )
+      );
+
+      // Crear red
+      const container = document.getElementById("network");
+      const data = { nodes, edges };
+      const options = {
+        layout: {
+          hierarchical: {
+            direction: "LR",
+            nodeSpacing: 150,
+            levelSeparation: 100
+          }
+        },
+        physics: {
+          hierarchicalRepulsion: { nodeDistance: 200 }
+        }
+      };
+      
+      new vis.Network(container, data, options);
+      
+      // Tema oscuro
+      document.getElementById("toggleTheme").onclick = () => {
+        document.body.classList.toggle("dark");
+      };
+    });
+  </script>
+</body>
+</html>
