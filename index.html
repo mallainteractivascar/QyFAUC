@@ -1,23 +1,41 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Malla QyF UC - Interactiva</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Pacifico&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malla Curricular Química y Farmacia UC</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <header>
-    <h1>Malla QyF UC <small>by You</small></h1>
-    <div class="actions">
-      <button id="resetBtn">🔄 Reiniciar</button>
-      <button id="toggleTheme">🌙 Tema Oscuro</button>
-      <button id="viewDiagram">📊 Ver Diagrama</button>
+    <header>
+        <h1>Malla Curricular de Química y Farmacia UC</h1>
+        <div class="controls">
+            <button id="reset-btn">Reiniciar Progreso</button>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+                <span id="progress-text">0% completado</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="timeline">
+            <!-- Los semestres se generarán dinámicamente con JavaScript -->
+        </div>
+    </main>
+
+    <div class="course-modal" id="course-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2 id="modal-title">Título del Curso</h2>
+            <p id="modal-code">Código: XXX</p>
+            <p id="modal-credits">Créditos: XX</p>
+            <p id="modal-prerequisites">Prerrequisitos: Ninguno</p>
+            <button id="toggle-course">Marcar como aprobado</button>
+        </div>
     </div>
-    <p id="creditos">Créditos: 0/0</p>
-  </header>
-  <main id="malla"></main>
-  <script src="script.js"></script>
+
+    <script src="script.js"></script>
 </body>
 </html>
