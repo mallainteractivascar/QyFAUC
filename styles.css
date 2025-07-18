@@ -26,6 +26,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-dark);
     line-height: 1.6;
+    padding-bottom: 2rem;
 }
 
 header {
@@ -184,17 +185,6 @@ button:hover {
     color: #6c757d;
 }
 
-.connections {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    pointer-events: none;
-    z-index: -1;
-}
-
-/* Modal styles */
 .course-modal {
     display: none;
     position: fixed;
@@ -237,7 +227,6 @@ button:hover {
     background-color: var(--pastel-mint);
 }
 
-/* Responsive design */
 @media (max-width: 768px) {
     .courses-container {
         grid-template-columns: 1fr;
