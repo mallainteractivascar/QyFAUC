@@ -1,34 +1,37 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malla Curricular QyF UC</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Malla Interactiva - Química y Farmacia UC</title>
+    <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
-    <header>
-        <h1>Malla Curricular de Química y Farmacia UC</h1>
-        <div class="controls">
-            <button id="reset-btn">Reiniciar Progreso</button>
-            <div class="progress-container">
-                <div class="progress-bar" id="progress-bar"></div>
-                <span id="progress-text">0% completado</span>
-            </div>
+    <h1>Malla Interactiva - Química y Farmacia UC</h1>
+    <div id="malla">
+        <!-- SEMESTRE 1 -->
+        <div class="semestre">
+            <h2>Semestre 1</h2>
+            <div class="curso" id="QIM100I" data-prereq="">Química General</div>
+            <div class="curso" id="QIM101Q" data-prereq="">Lab. Química General</div>
+            <div class="curso" id="QIF117" data-prereq="">El Mundo de los Medicamentos</div>
+            <div class="curso" id="MAT1000" data-prereq="">Precálculo</div>
+            <div class="curso" id="QIF100B" data-prereq="">Intro Ciencias Farmacéuticas</div>
+            <div class="curso" id="FIL2001" data-prereq="">Filosofía: ¿Para Qué?</div>
         </div>
-    </header>
 
-    <main id="timeline-container"></main>
-
-    <div class="modal" id="course-modal">
-        <div class="modal-content">
-            <span class="close-btn">&times;</span>
-            <h2 id="modal-title"></h2>
-            <p><strong>Código:</strong> <span id="modal-code"></span></p>
-            <p><strong>Créditos:</strong> <span id="modal-credits"></span></p>
-            <p><strong>Prerrequisitos:</strong> <span id="modal-prereq"></span></p>
-            <button id="toggle-btn">Marcar como aprobado</button>
+        <!-- SEMESTRE 2 -->
+        <div class="semestre">
+            <h2>Semestre 2</h2>
+            <div class="curso" id="QIM100A" data-prereq="QIM100I,QIM101Q">
+                Química General II<br><small>Prerrequisitos: Química General + Lab</small>
+            </div>
+            <div class="curso" id="MAT1100" data-prereq="MAT1000">
+                Cálculo I<br><small>Prerrequisito: Precálculo</small>
+            </div>
+            <div class="curso" id="FIS109C" data-prereq="">Física para Ciencias</div>
+            <div class="curso" id="ELECTIVO1" data-prereq="">Electivo Formación General (1/7)</div>
+            <div class="curso" id="ELECTIVO2" data-prereq="">Electivo Formación General (2/7)</div>
         </div>
     </div>
 
