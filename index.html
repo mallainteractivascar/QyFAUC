@@ -5,11 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Malla Interactiva - Química y Farmacia UC</title>
     <link rel="stylesheet" href="estilos.css" />
-    <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
 </head>
 <body>
-    <h1>Malla Interactiva - Química y Farmacia UC</h1>
-    <div id="cy"></div>
+    <h1>Malla Curricular - Química y Farmacia UC</h1>
+    <div id="malla">
+        <!-- SEMESTRE 1 -->
+        <div class="curso" id="QIM100I" data-prereq="">Química General</div>
+        <div class="curso" id="QIM101Q" data-prereq="">Lab. Química General</div>
+        <div class="curso" id="QIF117" data-prereq="">El Mundo de los Medicamentos</div>
+        <div class="curso" id="MAT1000" data-prereq="">Precálculo</div>
+        <div class="curso" id="QIF100B" data-prereq="">Intro Ciencias Farmacéuticas</div>
+        <div class="curso" id="FIL2001" data-prereq="">Filosofía: ¿Para Qué?</div>
+
+        <!-- SEMESTRE 2 -->
+        <div class="curso" id="QIM100A" data-prereq="QIM100I,QIM101Q">Química General II</div>
+        <div class="curso" id="MAT1100" data-prereq="MAT1000">Cálculo I</div>
+        <div class="curso" id="FIS109C" data-prereq="">Física para Ciencias</div>
+        <div class="curso" id="ELECTIVO1" data-prereq="">Electivo Formación General (1/7)</div>
+        <div class="curso" id="ELECTIVO2" data-prereq="">Electivo Formación General (2/7)</div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
