@@ -1,69 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malla Curricular - Química y Farmacia UC</title>
-    <link rel="stylesheet" href="estilos.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Malla Interactiva - Química y Farmacia UC</title>
+    <link rel="stylesheet" href="estilos.css" />
+    <!-- Librería Cytoscape -->
+    <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
 </head>
 <body>
-    <h1>Malla Interactiva - Química y Farmacia UC</h1>
-    <p>Haz click en un curso para marcarlo como aprobado. Los cursos bloqueados se desbloquearán automáticamente al cumplir sus prerrequisitos.</p>
-    <div id="malla">
-        <!-- SEMESTRE 1 -->
-        <div class="curso" id="QIM100I" data-prereq="">Química General</div>
-        <div class="curso" id="QIM101Q" data-prereq="">Lab. Química General</div>
-        <div class="curso" id="QIF117" data-prereq="">El Mundo de los Medicamentos</div>
-        <div class="curso" id="MAT1000" data-prereq="">Precálculo</div>
-        <div class="curso" id="QIF100B" data-prereq="">Int. Ciencias Farmacéuticas</div>
-        <div class="curso" id="FIL2001" data-prereq="">Filosofía: ¿Para Qué?</div>
-
-        <!-- SEMESTRE 2 -->
-        <div class="curso" id="QIM100A" data-prereq="QIM100I,QIM101Q">Química General II</div>
-        <div class="curso" id="MAT1100" data-prereq="MAT1000">Cálculo I</div>
-        <div class="curso" id="FIS109C" data-prereq="">Física para Ciencias</div>
-        <div class="curso" id="ELECTIVO1" data-prereq="">Electivo Formación General (1/7)</div>
-        <div class="curso" id="ELECTIVO2" data-prereq="">Electivo Formación General (2/7)</div>
-
-        <!-- SEMESTRE 3 -->
-        <div class="curso" id="QIM102A" data-prereq="QIM100A">Química Orgánica I</div>
-        <div class="curso" id="EYP2310" data-prereq="MAT1100">Estadística QF</div>
-        <div class="curso" id="QIF115A" data-prereq="QIF117,QIM100A">Botánica y Farmacognosia</div>
-        <div class="curso" id="BIO141C" data-prereq="">Biología de la Célula</div>
-        <div class="curso" id="ELECTIVO3" data-prereq="">Electivo Formación General (3/7)</div>
-
-        <!-- SEMESTRE 4 -->
-        <div class="curso" id="QIM103A" data-prereq="QIM102A">Química Orgánica II</div>
-        <div class="curso" id="QIM109A" data-prereq="QIM100A,EYP2310">Química Analítica I</div>
-        <div class="curso" id="BIO135C" data-prereq="BIO141C">Fisiología</div>
-        <div class="curso" id="ELECTIVO4" data-prereq="">Electivo Formación General (4/7)</div>
-        <div class="curso" id="ELECTIVO5" data-prereq="">Electivo Formación General (5/7)</div>
-
-        <!-- SEMESTRE 5 -->
-        <div class="curso" id="QIM104A" data-prereq="QIM103A">Lab. Química Orgánica</div>
-        <div class="curso" id="QIM117B" data-prereq="QIM103A">Bioquímica</div>
-        <div class="curso" id="QIM150A" data-prereq="QIM100A,FIS109C,MAT1100">Química-Física</div>
-        <div class="curso" id="QIM111" data-prereq="QIM109A">Análisis Instrumental</div>
-        <div class="curso" id="MEB203B" data-prereq="BIO135C">Fisiopatología</div>
-
-        <!-- SEMESTRE 6 -->
-        <div class="curso" id="BIO145C" data-prereq="QIM117B">Microbiología e Inmunología</div>
-        <div class="curso" id="QIF101A" data-prereq="QIM104A,QIM150A">Fármaco-Química I</div>
-        <div class="curso" id="QIF104A" data-prereq="QIM150A">Farmacocinética y Biofarmacia</div>
-        <div class="curso" id="QIF150" data-prereq="MEB203B,QIM117B">Farmacología I</div>
-        <div class="curso" id="ELECTIVO6" data-prereq="">Electivo Formación General (6/7)</div>
-
-        <!-- SEMESTRE 7 -->
-        <div class="curso" id="QIF102A" data-prereq="QIF101A,QIF150">Fármaco-Química II</div>
-        <div class="curso" id="QIF105A" data-prereq="QIF104A,QIM111">Tecnología Farmacéutica I</div>
-        <div class="curso" id="QIF116" data-prereq="QIF150">Farmacología II</div>
-        <div class="curso" id="QIF118A" data-prereq="MEB203B,QIM117B,QIM150A">Bioquímica Clínica</div>
-        <div class="curso" id="ELECTIVO7" data-prereq="">Electivo Formación General (7/7)</div>
-
-        <!-- SEMESTRES 8-10 OMITIDOS POR ESPACIO -->
-        <!-- Puedes seguir con los demás cursos de igual forma -->
-    </div>
-
+    <h1>Malla Curricular - Química y Farmacia UC</h1>
+    <div id="cy"></div>
     <script src="script.js"></script>
 </body>
 </html>
