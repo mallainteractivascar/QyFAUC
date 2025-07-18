@@ -1,118 +1,253 @@
 :root {
-  --primary: #00bcd4;
-  --secondary: #0097a7;
-  --dark: #263238;
-  --light: #f0f8ff;
+    --pastel-blue: #a2d2ff;
+    --pastel-green: #bde0fe;
+    --pastel-purple: #cdb4db;
+    --pastel-pink: #ffc8dd;
+    --pastel-red: #ffafcc;
+    --pastel-yellow: #ffd6a5;
+    --pastel-orange: #fdffb6;
+    --pastel-mint: #caffbf;
+    --pastel-lavender: #ddbdf2;
+    --pastel-peach: #ffadad;
+    --text-dark: #2b2d42;
+    --text-light: #f8f9fa;
+    --bg-color: #f8f9fa;
+    --semester-bg: #e9ecef;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
-  background: var(--light);
-  color: #333;
-  margin: 0;
-  padding: 0;
-  transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-dark);
+    line-height: 1.6;
 }
 
 header {
-  background: var(--primary);
-  color: white;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background: linear-gradient(135deg, var(--pastel-purple), var(--pastel-blue));
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 h1 {
-  font-family: 'Pacifico', cursive;
-  margin: 0.5rem 0;
-  font-size: 2.2rem;
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
 }
 
-.actions {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin: 1rem 0;
+.controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 button {
-  background: var(--secondary);
-  color: white;
-  border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  cursor: pointer;
-  font-family: 'Poppins';
-  transition: all 0.2s;
+    background-color: white;
+    color: var(--text-dark);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-#malla {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
-  max-width: 1400px;
-  margin: 0 auto;
+.progress-container {
+    width: 100%;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    height: 20px;
+    position: relative;
+    overflow: hidden;
 }
 
-.semestre {
-  background: white;
-  border-radius: 10px;
-  padding: 1rem;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--pastel-mint), var(--pastel-green));
+    width: 0%;
+    transition: width 0.5s ease;
+    border-radius: 10px;
 }
 
-.semestre h2 {
-  color: var(--secondary);
-  margin-top: 0;
-  font-size: 1.1rem;
-  text-align: center;
+#progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--text-dark);
+    font-size: 0.8rem;
+    font-weight: 500;
 }
 
-.curso {
-  background: #e3f2fd;
-  border-radius: 8px;
-  padding: 0.8rem;
-  margin: 0.5rem 0;
-  cursor: pointer;
-  transition: all 0.2s;
+.timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 0 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-.curso:hover {
-  transform: scale(1.02);
+.semester {
+    background-color: var(--semester-bg);
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.curso.bloqueado {
-  opacity: 0.6;
-  background: #e0e0e0;
-  cursor: not-allowed;
+.semester-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
 }
 
-.curso.aprobado {
-  background: #4caf50;
-  color: white;
+.semester-icon {
+    font-size: 1.8rem;
+    margin-right: 1rem;
 }
 
-/* Modo Oscuro */
-.dark {
-  background: var(--dark);
-  color: #eee;
+.semester-title {
+    font-size: 1.5rem;
+    font-weight: 600;
 }
 
-.dark .semestre {
-  background: #37474f;
+.courses-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1rem;
 }
 
-.dark .curso {
-  background: #455a64;
-  color: #eee;
+.course {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid var(--pastel-blue);
 }
 
-.dark .curso.bloqueado {
-  background: #546e7a;
+.course:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.course.approved {
+    background-color: var(--pastel-mint);
+    border-left: 5px solid #4caf50;
+}
+
+.course.locked {
+    background-color: #e9ecef;
+    color: #adb5bd;
+    cursor: not-allowed;
+}
+
+.course.locked::after {
+    content: "🔒";
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.course-code {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--pastel-purple);
+    margin-bottom: 0.3rem;
+}
+
+.course-name {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.course-credits {
+    font-size: 0.8rem;
+    color: #6c757d;
+}
+
+.connections {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Modal styles */
+.course-modal {
+    display: none;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#toggle-course {
+    margin-top: 1rem;
+    width: 100%;
+    padding: 0.8rem;
+    background-color: var(--pastel-blue);
+    color: white;
+}
+
+#toggle-course.approved {
+    background-color: var(--pastel-mint);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .courses-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .semester-title {
+        font-size: 1.2rem;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
 }
